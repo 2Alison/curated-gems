@@ -173,6 +173,7 @@ window.__countsForCurrentQuery = counts;
 
     // 渲染结果
     render(view);
+    renderSources(['all', ...new Set(raw.map(x => x.source))]);
 }
 
 /**
