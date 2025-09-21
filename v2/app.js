@@ -184,9 +184,12 @@ function renderSources(list) {
 
     sourcesEl.innerHTML = list.map(source => {
         // 🌟 优化数据源显示文字
-        const displayText = source === 'all'
-            ? (lang === 'zh' ? '📚 全部精选' : '📚 All Sources')
-            : `✨ ${source}`;
+     const n = counts[source] || 0;
+const displayText = source === 'all'
+  ? (lang === 'zh'
+      ? `📚 全部 (${n})`
+      : `📚 All (${n})`)
+  : `✨ ${source} (${n})`;
 
         const isActive = source === activeSource ? 'active' : '';
 
